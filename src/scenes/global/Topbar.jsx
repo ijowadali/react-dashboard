@@ -2,6 +2,14 @@ import {Box, IconButton, InputBase, useTheme} from "@mui/material";
 import {ColorModeContext, tokens} from "../../them";
 import {useContext} from "react";
 import SearchIcon from "@mui/icons-material/Search";
+import {
+    DarkModeOutlined,
+    LightModeOutlined,
+    NotificationsOutlined,
+    PercentOutlined,
+    PersonOutline,
+    SettingsOutlined
+} from "@mui/icons-material";
 
 const Topbar = () => {
   const theme = useTheme();
@@ -14,6 +22,20 @@ const Topbar = () => {
           <IconButton type={"button"} sx={{ p: 1}}>
             <SearchIcon />
           </IconButton>
+        </Box>
+        <Box display={"flex"}>
+            <IconButton onClick={colorMode.toggleColorMode}>
+                { theme.palette.mode === 'dark' ? (<DarkModeOutlined/>) : (<LightModeOutlined/>)}
+            </IconButton>
+            <IconButton>
+                <NotificationsOutlined/>
+            </IconButton>
+            <IconButton>
+                <SettingsOutlined/>
+            </IconButton>
+            <IconButton>
+                <PersonOutline/>
+            </IconButton>
         </Box>
       </Box>
   );
